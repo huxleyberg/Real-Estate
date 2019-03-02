@@ -53,6 +53,15 @@
                 >
                     <a class="nav-link" href="{% url 'dashboard' %}">Welcome {{ user.username }} (Dashboard)</a>
                 </li>
+                    <li class="nav-item  mr-3">
+                        <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                            <i class="fas fa-sign-out-alt">Logout</i>
+                        </a>
+                        <form action="{% url 'logout' %}" method="post" id="logout">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    </li>
                 {% else %}
                     <li class="nav-item mr-3">
                         <a class="nav-link" href="{% url 'register' %}">
